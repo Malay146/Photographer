@@ -60,7 +60,7 @@ const Navbar = () => {
           top-4 sm:top-6 md:top-8
           left-1/2
           -translate-x-1/2
-          z-[9999]
+          z-[999]
           w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20
           flex justify-center items-center
           bg-black border-2 rounded-full cursor-pointer

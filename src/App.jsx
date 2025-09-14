@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import MouseFollower from "./components/MouseFollower";
+import Loader from "./components/Loader";
 import "./index.css"
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
 
   return (
     <div className="w-full relative">
+      <Loader />
       <MouseFollower size={40} color="white" hoverScale={2} zIndex={99} opacity={0.8}/>
       <Router>
         <Navbar />
