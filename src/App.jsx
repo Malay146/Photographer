@@ -44,7 +44,10 @@ const App = () => {
   return (
     <div className="w-full relative">
       <Loader />
-      <MouseFollower size={40} color="white" hoverScale={2} zIndex={99} opacity={0.8}/>
+      {/* hide on phones & tablets, show from large screens upward */}
+      <div className="hidden lg:block">
+        <MouseFollower size={40} color="white" hoverScale={2} zIndex={99} opacity={0.8} />
+      </div>
       <Router>
         <Navbar />
         <Routes>
