@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import MouseFollower from "./components/MouseFollower";
+import "./index.css"
 
 const App = () => {
   useEffect(() => {
@@ -40,6 +42,7 @@ const App = () => {
 
   return (
     <div className="w-full relative">
+      <MouseFollower size={40} color="white" hoverScale={2} zIndex={99} opacity={0.8}/>
       <Router>
         <Navbar />
         <Routes>

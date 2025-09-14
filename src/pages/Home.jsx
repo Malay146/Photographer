@@ -160,9 +160,9 @@ const Home = () => {
         }}
         className="w-full min-h-screen flex flex-col justify-center items-center overflow-hidden relative px-4 sm:px-6 lg:px-8"
       >
-        <div className="font-noto font-semibold text-zinc-900 text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-center mb-8">
-          <h1 className="overflow-hidden py-3">Capturing Moments,</h1>
-          <h1 className="overflow-hidden py-3">Creating Memories</h1>
+        <div className="font-noto font-semibold text-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-center mb-8">
+          <h1>Capturing Moments,</h1>
+          <h1>Creating Memories</h1>
         </div>
 
         {/* Hidden on mobile, visible from medium screens up */}

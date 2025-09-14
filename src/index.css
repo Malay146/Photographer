@@ -26,6 +26,12 @@
     width: 120px;
 } */
 
+::selection {
+  background: rgb(38, 38, 38); /* highlight color */
+  color: white;        /* text color while highlighted */
+}
+
+
 .font-noto {
   font-family: "Noto Serif", serif;
 }
