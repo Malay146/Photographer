@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { IoMenu, IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import SplitText from "./SplitText";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Navbar = () => {
   const tl = useRef(null);
 
   // Create GSAP timeline once
-  useEffect(() => {
+  useGSAP(() => {
     tl.current = gsap.timeline({ paused: true });
     tl.current.to(overlayRef.current, {
       y: 0,
@@ -21,13 +22,13 @@ const Navbar = () => {
   }, []);
 
   // Play or reverse the timeline when menuOpen changes
-  useEffect(() => {
+  useGSAP(() => {
     if (menuOpen) {
       tl.current.play();
     } else {
       tl.current.reverse();
     }
-  }, [menuOpen]);
+  }, { dependencies: [menuOpen] });
 
   // Toggle menu
   const toggleMenu = useCallback(() => {

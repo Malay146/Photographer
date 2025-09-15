@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
 
 const SplitText = ({
@@ -18,7 +19,7 @@ const SplitText = ({
   const wrapperRef = useRef(null);
   const splitRefs = useRef([]);
 
-  useEffect(() => {
+  useGSAP(() => {
     const el = wrapperRef.current;
     const first = el.querySelector(".original");
     const second = el.querySelector(".duplicate");
@@ -96,7 +97,7 @@ const SplitText = ({
       split1.revert();
       split2.revert();
     };
-  }, [duration, ease, delay, splitType, stagger, elastic]);
+  }, { dependencies: [duration, ease, delay, splitType, stagger, elastic] });
 
   return (
     <Tag

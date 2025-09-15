@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const MouseFollower = ({
   size = 20,
@@ -12,14 +13,14 @@ const MouseFollower = ({
   skew = true,
   rotate = true,
   blendMode = "difference",
-  border = "1px solid black",
+  border = "1px solid white",
   hoverScale = 1.5, // default
 }) => {
   const followerRef = useRef(null);
   const lastPos = useRef({ x: 0, y: 0 });
   const resetTimeout = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const xTo = gsap.quickTo(followerRef.current, "x", { duration, ease });
     const yTo = gsap.quickTo(followerRef.current, "y", { duration, ease });
 
@@ -87,7 +88,7 @@ const MouseFollower = ({
       });
       clearTimeout(resetTimeout.current);
     };
-  }, [duration, ease, skew, rotate, hoverScale]);
+  }, { dependencies: [duration, ease, skew, rotate, hoverScale] });
 
   return (
     <div

@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import "../index.css";
 import Footer from "../components/Footer";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Home = () => {
   const tiltRef = useRef(null);
@@ -32,38 +33,28 @@ const Home = () => {
   const plane7 = useRef(null);
 
   const speed = 0.07;
-  const manageMouseMove = (e) => {
-    const { movementX, movementY } = e;
-
-    gsap.set(plane1.current, {
-      x: `+=${movementX * speed}`,
-      y: `+=${movementY * speed}`,
-    });
-    gsap.set(plane2.current, {
-      x: `+=${movementX * speed * 0.25}`,
-      y: `+=${movementY * speed * 0.25}`,
-    });
-    gsap.set(plane3.current, {
-      x: `+=${movementX * speed}`,
-      y: `+=${movementY * speed}`,
-    });
-    gsap.set(plane4.current, {
-      x: `+=${movementX * speed * 0.5}`,
-      y: `+=${movementY * speed * 0.5}`,
-    });
-    gsap.set(plane5.current, {
-      x: `+=${movementX * speed * 0.25}`,
-      y: `+=${movementY * speed * 0.25}`,
-    });
-    gsap.set(plane6.current, {
-      x: `+=${movementX * speed}`,
-      y: `+=${movementY * speed}`,
-    });
-    gsap.set(plane7.current, {
-      x: `+=${movementX * speed * 0.5}`,
-      y: `+=${movementY * speed * 0.5}`,
-    });
+  let rafId = null;
+  let pendingX = 0;
+  let pendingY = 0;
+  const updatePlanes = () => {
+    gsap.set(plane1.current, { x: `+=${pendingX * speed}`, y: `+=${pendingY * speed}` });
+    gsap.set(plane2.current, { x: `+=${pendingX * speed * 0.25}`, y: `+=${pendingY * speed * 0.25}` });
+    gsap.set(plane3.current, { x: `+=${pendingX * speed}`, y: `+=${pendingY * speed}` });
+    gsap.set(plane4.current, { x: `+=${pendingX * speed * 0.5}`, y: `+=${pendingY * speed * 0.5}` });
+    gsap.set(plane5.current, { x: `+=${pendingX * speed * 0.25}`, y: `+=${pendingY * speed * 0.25}` });
+    gsap.set(plane6.current, { x: `+=${pendingX * speed}`, y: `+=${pendingY * speed}` });
+    gsap.set(plane7.current, { x: `+=${pendingX * speed * 0.5}`, y: `+=${pendingY * speed * 0.5}` });
+    rafId = null;
   };
+  const manageMouseMove = (e) => {
+    pendingX = e.movementX;
+    pendingY = e.movementY;
+    if (rafId == null) rafId = requestAnimationFrame(updatePlanes);
+  };
+
+  useGSAP(() => {
+    // nothing to initialize on mount yet, but hook ensures GSAP context cleanup if added later
+  }, []);
 
   const cards = [
     {
@@ -107,53 +98,6 @@ const Home = () => {
   return (
     <>
       {/* Main Section */}
-      {/* <div
-        onMouseMove={(e) => {
-          manageMouseMove(e);
-        }}
-        className="w-full h-screen flex flex-col justify-center items-center overflow-hidden relative"
-      >
-        <div className="font-noto font-semibold text-zinc-900 text-7xl text-center">
-          <h1>Capturing Moments,</h1>
-          <h1>Creating Memories</h1>
-        </div>
-
-        <img
-          ref={plane1}
-          className="absolute bg-zinc-500 h-[300px] w-[475px] top-[10%] left-[20%]"
-          src="https://images.pexels.com/photos/28469559/pexels-photo-28469559.jpeg"
-        />
-        <img
-          ref={plane2}
-          className="absolute bg-zinc-500 h-[200px] w-[350px] top-[20%] left-[50%] object-cover bg-center"
-          src="https://images.pexels.com/photos/33810681/pexels-photo-33810681.jpeg"
-        />
-        <img
-          ref={plane3}
-          className="absolute bg-zinc-500 h-[400px] w-[325px] top-[15%] left-[72%] object-cover"
-          src="https://images.pexels.com/photos/3331094/pexels-photo-3331094.jpeg"
-        />
-        <img
-          ref={plane4}
-          className="absolute bg-zinc-500 h-[275px] w-[450px] top-[60%] left-[61%] object-cover bg-center"
-          src="https://images.pexels.com/photos/14659337/pexels-photo-14659337.jpeg"
-        />
-        <img
-          ref={plane5}
-          className="absolute bg-zinc-500 h-[350px] w-[275px] top-[63%] left-[42%] object-cover bg-center"
-          src="https://images.pexels.com/photos/2425694/pexels-photo-2425694.jpeg"
-        />
-        <img
-          ref={plane6}
-          className="absolute bg-zinc-500 h-[200px] w-[200px] top-[61%] left-[28%] object-cover bg-center"
-          src="https://images.pexels.com/photos/32067321/pexels-photo-32067321.jpeg"
-        />
-        <img
-          ref={plane7}
-          className="absolute bg-zinc-500 h-[250px] w-[400px] top-[43%] left-[5%] object-cover bg-center"
-          src="https://images.pexels.com/photos/3839769/pexels-photo-3839769.jpeg"
-        />
-      </div> */}
       <div
         onMouseMove={(e) => {
           manageMouseMove(e);
@@ -168,37 +112,37 @@ const Home = () => {
         {/* Hidden on mobile, visible from medium screens up */}
         <img
           ref={plane1}
-          className="hidden md:block absolute bg-zinc-500 h-[150px] w-[225px] md:h-[200px] md:w-[325px] lg:h-[300px] lg:w-[475px] top-[10%] left-[20%] object-cover"
+          className="hidden md:block absolute bg-zinc-500 h-[150px] w-[225px] md:h-[200px] md:w-[325px] lg:h-[300px] lg:w-[475px] top-[10%] left-[20%] object-cover will-change-transform"
           src="https://images.pexels.com/photos/28469559/pexels-photo-28469559.jpeg"
         />
         <img
           ref={plane2}
-          className="hidden md:block absolute bg-zinc-500 h-[100px] w-[175px] md:h-[150px] md:w-[250px] lg:h-[200px] lg:w-[350px] top-[16%] left-[50%] object-cover"
+          className="hidden md:block absolute bg-zinc-500 h-[100px] w-[175px] md:h-[150px] md:w-[250px] lg:h-[200px] lg:w-[350px] top-[16%] left-[50%] object-cover will-change-transform"
           src="https://images.pexels.com/photos/33810681/pexels-photo-33810681.jpeg"
         />
         <img
           ref={plane3}
-          className="hidden md:block absolute bg-zinc-500 h-[200px] w-[165px] md:h-[300px] md:w-[225px] lg:h-[400px] lg:w-[325px] top-[15%] left-[72%] object-cover"
+          className="hidden md:block absolute bg-zinc-500 h-[200px] w-[165px] md:h-[300px] md:w-[225px] lg:h-[400px] lg:w-[325px] top-[15%] left-[72%] object-cover will-change-transform"
           src="https://images.pexels.com/photos/3331094/pexels-photo-3331094.jpeg"
         />
         <img
           ref={plane4}
-          className="hidden md:block absolute bg-zinc-500 h-[140px] w-[225px] md:h-[200px] md:w-[325px] lg:h-[275px] lg:w-[450px] top-[60%] left-[61%] object-cover"
+          className="hidden md:block absolute bg-zinc-500 h-[140px] w-[225px] md:h-[200px] md:w-[325px] lg:h-[275px] lg:w-[450px] top-[60%] left-[61%] object-cover will-change-transform"
           src="https://images.pexels.com/photos/14659337/pexels-photo-14659337.jpeg"
         />
         <img
           ref={plane5}
-          className="hidden md:block absolute bg-zinc-500 h-[175px] w-[140px] md:h-[250px] md:w-[200px] lg:h-[350px] lg:w-[275px] top-[63%] left-[42%] object-cover"
+          className="hidden md:block absolute bg-zinc-500 h-[175px] w-[140px] md:h-[250px] md:w-[200px] lg:h-[350px] lg:w-[275px] top-[63%] left-[42%] object-cover will-change-transform"
           src="https://images.pexels.com/photos/2425694/pexels-photo-2425694.jpeg"
         />
         <img
           ref={plane6}
-          className="hidden md:block absolute bg-zinc-500 h-[100px] w-[100px] md:h-[150px] md:w-[150px] lg:h-[200px] lg:w-[200px] top-[61%] left-[28%] object-cover"
+          className="hidden md:block absolute bg-zinc-500 h-[100px] w-[100px] md:h-[150px] md:w-[150px] lg:h-[200px] lg:w-[200px] top-[61%] left-[28%] object-cover will-change-transform"
           src="https://images.pexels.com/photos/32067321/pexels-photo-32067321.jpeg"
         />
         <img
           ref={plane7}
-          className="hidden md:block absolute bg-zinc-500 h-[125px] w-[200px] md:h-[175px] md:w-[300px] lg:h-[250px] lg:w-[400px] top-[43%] left-[5%] object-cover"
+          className="hidden md:block absolute bg-zinc-500 h-[125px] w-[200px] md:h-[175px] md:w-[300px] lg:h-[250px] lg:w-[400px] top-[43%] left-[5%] object-cover will-change-transform"
           src="https://images.pexels.com/photos/3839769/pexels-photo-3839769.jpeg"
         />
 
@@ -239,53 +183,6 @@ const Home = () => {
       </div>
 
       {/* Story Section */}
-      {/* <div className="w-full flex flex-col justify-center mt-14">
-        <h1 className="w-full font-noto text-8xl font-extrabold text-center relative z-9">
-          {" "}
-          Visual Poetry
-        </h1>
-
-        <div className="Cards w-full px-[200px] mt-8">
-          {cards.map((card, idx) => (
-            <div
-              key={idx}
-              className={`w-full flex ${
-                card.reverse ? "Card-r flex-row-reverse" : "Card-l"
-              } gap-[5rem] mt-10`}
-            >
-              <div
-                className={`Image w-[45%] h-[27rem] bg-zinc-700 ${
-                  card.reverse ? "rounded-l-[40px]" : "rounded-r-[40px]"
-                } overflow-hidden relative`}
-              >
-                <img src={card.image} alt="" />
-                <h4
-                  className={`text-zinc-100 absolute bottom-3 ${
-                    card.datePosition === "right"
-                      ? "right-[3rem]"
-                      : "left-[3rem]"
-                  } font-play`}
-                >
-                  {card.date}
-                </h4>
-              </div>
-              <div className="content w-[45%] flex flex-col justify-center">
-                <h2 className="font-lato text-5xl font-bold">{card.title}</h2>
-                {card.paragraphs.map((p, i) => (
-                  <p
-                    key={i}
-                    className={`font-lato leading-snug ${
-                      i === 0 ? "mt-10" : "mt-3"
-                    }`}
-                  >
-                    {p}
-                  </p>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div> */}
       <div className="w-full flex flex-col justify-center mt-14">
         <h1 className="w-full font-noto text-4xl md:text-8xl font-extrabold text-center relative z-9">
           Visual Poetry
@@ -340,49 +237,9 @@ const Home = () => {
       </div>
 
       {/* About me */}
-      {/* <div className="w-full mt-20 mb-20 flex justify-center items-center">
-        <div className="w-[40vw] text-center flex flex-col justify-center items-center">
-          <h1 className="font-noto text-8xl font-bold tracking-tighter">
-            The Story Behind the Camera
-          </h1>
-          <div
-            ref={tiltRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className="Tilt w-[30vw] h-[75vh] rounded-[30px] overflow-hidden bg-zinc-400 mt-16 transition-transform duration-200 ease-out shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]"
-            style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
-          >
-            <img
-              className="bg-center bg-cover object-cover"
-              src="https://images.pexels.com/photos/1306247/pexels-photo-1306247.jpeg"
-              alt=""
-              srcset=""
-            />
-          </div>
-          <div className="font-lato mt-10 leading-tight tracking-tighter">
-            <h4 className="font-bold text-3xl">Orion Hale, 29 </h4>
-            <h4 className="font-bold text-3xl">
-              “Where silence, light, and emotion converge.”
-            </h4>
-          </div>
-          <p className="font-lato text-center text-lg mt-5 mb-5 tracking-tight leading-tight text-balance">
-            “Every photograph I take is more than just an image — it’s a story
-            frozen in time. Through my lens, I chase fleeting moments, raw
-            emotions, and the beauty hidden in details most eyes overlook. For
-            me, photography isn’t just about capturing how something looks, but
-            how it feels — the silence of a sunrise, the chaos of a city street,
-            the tenderness of a fleeting glance. This journey isn’t just about
-            pictures; it’s about preserving memories, framing emotions, and
-            telling stories that words often fail to express. Through my lens, I
-            chase fleeting moments, raw emotions, and the beauty hidden in
-            details most eyes overlook. This journey isn’t just about pictures.”
-          </p>
-        </div>
-      </div> */}
-
       <div className="w-full mt-16 mb-20 flex justify-center items-center px-4 sm:px-6">
         <div className="w-full max-w-6xl text-center flex flex-col justify-center items-center">
-          <h1 className="font-noto text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter">
+          <h1 className="font-noto text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-black font-bold tracking-tighter">
             The Story Behind the Camera
           </h1>
 
