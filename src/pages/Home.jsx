@@ -226,7 +226,7 @@ const Home = () => {
         </div>
       </div> */}
 
-      <div className="w-full flex flex-col justify-center items-center px-4">
+      <div className="w-full hidden lg:flex flex-col justify-center items-center px-4">
         <div className="w-full max-w-[1400px] h-[70vh] sm:h-[65vh] md:h-[70vh] lg:h-[75vh] flex flex-col justify-center items-center mt-12 relative">
           <div className="w-full sm:w-[92%] md:w-[80%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[40vh] sm:h-[48vh] md:h-[56vh] lg:h-[66vh] bg-zinc-500 rounded-[14px] md:rounded-[36px] overflow-hidden">
             <img
@@ -235,12 +235,6 @@ const Home = () => {
               alt="Featured large photography"
             />
           </div>
-          {/* 
-          <div
-            className="absolute transform -translate-x-1/2 left-1/2 bg-white/30 backdrop-blur-sm rounded-xl shadow-md
-                      w-[90%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-28 sm:h-32 md:h-40 lg:h-44
-                      top-[78%] sm:top-[80%] md:top-[82%]"
-          ></div> */}
         </div>
       </div>
 
