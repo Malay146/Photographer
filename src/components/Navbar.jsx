@@ -56,6 +56,8 @@ const Navbar = () => {
       {/* Floating Menu Button */}
       <button
         onClick={toggleMenu}
+        aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={menuOpen}
         className="
           fixed
           top-4 sm:top-6 md:top-8

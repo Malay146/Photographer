@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Play:wght@400;700&display=swap');
+/* Fonts are preloaded in HTML head for better performance */
 
 @tailwind base;
 @tailwind components;
@@ -78,4 +78,190 @@
     box-shadow: -50px 0px 180px white;
     right: -80px;
     top: -80px;
+}
+
+@media (max-width: 768px) {
+    .Tilt{
+        pointer-events: none;
+    }
+}
+
+@media (min-width: 768px) {
+   .plane1{
+    top: 14%;
+    left: 5%;
+    width: 300px;
+    height: auto;
+   }
+   .plane2{
+    top: 28%;
+    left: 46%;
+    width: 170px;
+    height: auto;
+   }
+   .plane3{
+    top: 10%;
+    left: 70%;
+    width: 225px;
+    height: auto;
+   }
+   .plane4{
+    top: 56%;
+    left: 72%;
+    width: 220px;
+    height: auto;
+   }
+   .plane5{
+    top: 60%;
+    left: 43%;
+    width: 200px;
+    height: auto;
+   }
+   .plane6{
+    top: 60%;
+    left: 25%;
+    width: 120px;
+    height: auto;
+   }
+   .plane7{
+    top: 42%;
+    left: 8%;
+    width: 160px;
+    height: auto;
+   }
+}
+
+@media (min-width: 1024px) {
+   .plane1{
+    top: 14%;
+    left: 10%;
+    width: 320px;
+    height: auto;
+   }
+   .plane2{
+    top: 25%;
+    left: 44%;
+    width: 230px;
+    height: auto;
+   }
+   .plane3{
+    top: 7%;
+    left: 70%;
+    width: 250px;
+    height: auto;
+   }
+   .plane4{
+    top: 58%;
+    left: 68%;
+    width: 285px;
+    height: auto;
+   }
+   .plane5{
+    top: 56%;
+    left: 40%;
+    width: 250px;
+    height: auto;
+   }
+   .plane6{
+    top: 62%;
+    left: 24%;
+    width: 150px;
+    height: auto;
+   }
+   .plane7{
+    top: 42%;
+    left: 5%;
+    width: 225px;
+    height: auto;
+   }
+}
+
+@media (min-width: 1280px) {
+   .plane1{
+    top: 14%;
+    left: 15%;
+    width: 330px;
+    height: auto;
+   }
+   .plane2{
+    top: 21%;
+    left: 44%;
+    width: 250px;
+    height: auto;
+   }
+   .plane3{
+    top: 5%;
+    left: 67%;
+    width: 250px;
+    height: auto;
+   }
+   .plane4{
+    top: 58%;
+    left: 65%;
+    width: 325px;
+    height: auto;
+   }
+   .plane5{
+    top: 58%;
+    left: 40%;
+    width: 275px;
+    height: auto;
+   }
+   .plane6{
+    top: 67%;
+    left: 25%;
+    width: 160px;
+    height: auto;
+   }
+   .plane7{
+    top: 44%;
+    left: 5%;
+    width: 270px;
+    height: auto;
+   }
+}
+
+@media (min-width: 1536px) {
+   .plane1{
+    top: 8%;
+    left: 18%;
+    width: 400px;
+    height: auto;
+   }
+   .plane2{
+    top: 18%;
+    left: 46%;
+    width: 325px;
+    height: auto;
+   }
+   .plane3{
+    top: 3%;
+    left: 70%;
+    width: 300px;
+    height: auto;
+   }
+   .plane4{
+    top: 62%;
+    left: 65%;
+    width: 375px;
+    height: auto;
+   }
+   .plane5{
+    top: 59%;
+    left: 47%;
+    width: 275px;
+    height: auto;
+   }
+   .plane6{
+    top: 68%;
+    left: 33%;
+    width: 200px;
+    height: auto;
+   }
+   .plane7{
+    top: 46%;
+    left: 12%;
+    width: 325px;
+    height: auto;
+   }
 }

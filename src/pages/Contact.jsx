@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Footer from '../components/Footer';
+import "../index.css"
 
 const Contact = () => {
   const heroRef = useRef(null);
@@ -100,6 +101,8 @@ const Contact = () => {
             src="https://images.pexels.com/photos/935949/pexels-photo-935949.jpeg"
             alt="Contact hero"
             className="w-full h-full object-cover opacity-30 will-change-transform scale-110"
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
         
@@ -139,6 +142,7 @@ const Contact = () => {
             
             <button 
               onClick={() => document.querySelector('.contact-cards-container').scrollIntoView({ behavior: 'smooth' })}
+              aria-label="Navigate to contact information section"
               className="group relative px-8 py-4 border-2 border-white text-white font-bold font-lato text-lg rounded-full hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105"
             >
               <span className="relative z-10">Get In Touch</span>
@@ -283,6 +287,7 @@ const Contact = () => {
                 <div className="text-center">
                   <button
                     type="submit"
+                    aria-label="Submit contact form to start your photography project"
                     className="bg-white hover:bg-gray-200 text-black font-bold font-lato text-lg px-12 py-4 rounded-xl transition-colors duration-300 uppercase tracking-wide"
                   >
                     Send Message
@@ -314,6 +319,7 @@ const Contact = () => {
               <a
                 key={idx}
                 href={social.url}
+                aria-label={`Follow us on ${social.name} for photography updates and behind-the-scenes content`}
                 className="flex items-center justify-center w-16 h-16 bg-black rounded-full hover:bg-gray-800 transition-colors duration-300 group"
               >
                 <svg 

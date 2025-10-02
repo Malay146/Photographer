@@ -927,6 +927,8 @@ export default function DomeGallery({
                       draggable={false}
                       alt={it.alt}
                       className="w-full h-full object-cover pointer-events-none"
+                      loading="lazy"
+                      fetchPriority="low"
                       style={{
                         backfaceVisibility: 'hidden',
                         filter: `var(--image-filter, ${grayscale ? 'grayscale(1)' : 'none'})`

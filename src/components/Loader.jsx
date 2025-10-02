@@ -12,13 +12,14 @@ const Loader = () => {
     const totalImages = images.length;
 
     let loadedCount = 0;
+    const totalResources = totalImages + 1; // +1 for fonts
 
     const updateProgress = () => {
       loadedCount++;
-      const percent = Math.round((loadedCount / (totalImages + 1)) * 100);
+      const percent = Math.min(100, Math.round((loadedCount / totalResources) * 100));
       setProgress(percent);
 
-      if (percent === 100) {
+      if (percent >= 100) {
         gsap.to(overlayRef.current, {
           y: "-100%",
           duration: 1,

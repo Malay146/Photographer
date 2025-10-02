@@ -47,6 +47,7 @@ const Footer = () => {
                   className="mt-6 md:mt-7 bg-white hover:bg-zinc-300 text-black font-extrabold uppercase px-6 py-2 md:px-7 md:py-3 rounded-lg cursor-pointer"
                   type="submit"
                   value="Submit"
+                  aria-label="Submit contact form message"
                 />
               </div>
             </div>

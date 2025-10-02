@@ -4,10 +4,63 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    
+    <!-- Performance Optimizations: Preload Critical Resources -->
+    <!-- DNS Prefetch for external domains -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//images.pexels.com">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" as="style" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&display=swap" as="style" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" as="style" fetchpriority="high">
+    
+    <!-- Preload Hero Images with High Priority -->
+    <link rel="preload" href="https://images.pexels.com/photos/28469559/pexels-photo-28469559.jpeg" as="image" fetchpriority="high">
+    <link rel="preload" href="https://images.pexels.com/photos/1306247/pexels-photo-1306247.jpeg" as="image" fetchpriority="high">
+    <link rel="preload" href="https://images.pexels.com/photos/935949/pexels-photo-935949.jpeg" as="image" fetchpriority="high">
+    
+    <!-- Preload Critical CSS -->
+    <link rel="preload" href="/src/index.css" as="style" fetchpriority="high">
+    
+    <!-- Load Fonts Asynchronously -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Play:wght@400;700&display=swap" media="print" onload="this.media='all'" fetchpriority="high">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Play:wght@400;700&display=swap">
+    </noscript>
+    
+    <!-- SEO Meta Tags -->
+    <title>Orion Hale - Professional Photographer Portfolio | Portrait, Event & Commercial Photography</title>
+    <meta name="description" content="Discover the stunning photography portfolio of Orion Hale. Specializing in portrait, event, wedding, and commercial photography. Where silence, light, and emotion converge to create unforgettable moments. Book your photography session today." />
+    <meta name="keywords" content="photographer, photography portfolio, portrait photography, event photography, wedding photography, commercial photography, professional photographer, photo sessions, Orion Hale" />
+    <meta name="author" content="Orion Hale" />
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Orion Hale - Professional Photographer Portfolio" />
+    <meta property="og:description" content="Discover stunning photography by Orion Hale. Specializing in portrait, event, wedding, and commercial photography. Where silence, light, and emotion converge." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://orionhale-photography.com" />
+    <meta property="og:image" content="https://images.pexels.com/photos/1306247/pexels-photo-1306247.jpeg" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Orion Hale - Professional Photographer Portfolio" />
+    <meta name="twitter:description" content="Discover stunning photography by Orion Hale. Specializing in portrait, event, wedding, and commercial photography." />
+    <meta name="twitter:image" content="https://images.pexels.com/photos/1306247/pexels-photo-1306247.jpeg" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://orionhale-photography.com" />
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- Defer script loading to not block rendering -->
+    <script type="module" src="/src/main.jsx" defer></script>
   </body>
 </html>

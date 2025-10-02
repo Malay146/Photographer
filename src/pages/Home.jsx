@@ -59,7 +59,7 @@ const Home = () => {
   const cards = [
     {
       image:
-        "https://images.pexels.com/photos/33732412/pexels-photo-33732412.jpeg",
+        "./s-1.webp",
       date: "August 17, 2023 – 5:42 AM",
       title: "Whispers of the Peaks",
       paragraphs: [
@@ -71,7 +71,7 @@ const Home = () => {
     },
     {
       image:
-        "https://images.pexels.com/photos/1624889/pexels-photo-1624889.jpeg",
+        "./s-2.webp",
       date: "September 4, 2023 – 7:15 PM",
       title: "Echoes in the Rain",
       paragraphs: [
@@ -82,7 +82,7 @@ const Home = () => {
       datePosition: "left",
     },
     {
-      image: "https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg",
+      image: "./s-3.webp",
       date: "January 9, 2024 – 6:28 AM",
       title: "Silent Horizon",
       paragraphs: [
@@ -104,54 +104,77 @@ const Home = () => {
         }}
         className="w-full min-h-screen flex flex-col justify-center items-center overflow-hidden relative px-4 sm:px-6 lg:px-8"
       >
-        <div className="font-noto font-semibold text-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-center mb-8">
+        <div className="font-noto font-semibold text-black text-3xl sm:text-5xl md:text-[48px] lg:text-5xl xl:text-6xl 2xl:text-7xl text-center mb-8">
           <h1>Capturing Moments,</h1>
           <h1>Creating Memories</h1>
         </div>
 
         {/* Hidden on mobile, visible from medium screens up */}
-        <img
-          ref={plane1}
-          className="hidden md:block absolute bg-zinc-500 h-[150px] w-[225px] md:h-[200px] md:w-[325px] lg:h-[300px] lg:w-[475px] top-[10%] left-[20%] object-cover will-change-transform"
-          src="https://images.pexels.com/photos/28469559/pexels-photo-28469559.jpeg"
-        />
-        <img
-          ref={plane2}
-          className="hidden md:block absolute bg-zinc-500 h-[100px] w-[175px] md:h-[150px] md:w-[250px] lg:h-[200px] lg:w-[350px] top-[16%] left-[50%] object-cover will-change-transform"
-          src="https://images.pexels.com/photos/33810681/pexels-photo-33810681.jpeg"
-        />
-        <img
-          ref={plane3}
-          className="hidden md:block absolute bg-zinc-500 h-[200px] w-[165px] md:h-[300px] md:w-[225px] lg:h-[400px] lg:w-[325px] top-[15%] left-[72%] object-cover will-change-transform"
-          src="https://images.pexels.com/photos/3331094/pexels-photo-3331094.jpeg"
-        />
-        <img
-          ref={plane4}
-          className="hidden md:block absolute bg-zinc-500 h-[140px] w-[225px] md:h-[200px] md:w-[325px] lg:h-[275px] lg:w-[450px] top-[60%] left-[61%] object-cover will-change-transform"
-          src="https://images.pexels.com/photos/14659337/pexels-photo-14659337.jpeg"
-        />
-        <img
-          ref={plane5}
-          className="hidden md:block absolute bg-zinc-500 h-[175px] w-[140px] md:h-[250px] md:w-[200px] lg:h-[350px] lg:w-[275px] top-[63%] left-[42%] object-cover will-change-transform"
-          src="https://images.pexels.com/photos/2425694/pexels-photo-2425694.jpeg"
-        />
-        <img
-          ref={plane6}
-          className="hidden md:block absolute bg-zinc-500 h-[100px] w-[100px] md:h-[150px] md:w-[150px] lg:h-[200px] lg:w-[200px] top-[61%] left-[28%] object-cover will-change-transform"
-          src="https://images.pexels.com/photos/32067321/pexels-photo-32067321.jpeg"
-        />
-        <img
-          ref={plane7}
-          className="hidden md:block absolute bg-zinc-500 h-[125px] w-[200px] md:h-[175px] md:w-[300px] lg:h-[250px] lg:w-[400px] top-[43%] left-[5%] object-cover will-change-transform"
-          src="https://images.pexels.com/photos/3839769/pexels-photo-3839769.jpeg"
-        />
+          <img
+            ref={plane1}
+            className="hidden md:block absolute bg-zinc-500 h-[150px] w-[225px] top-[10%] left-[20%] object-cover will-change-transform plane1"
+            src="./gardner.webp"
+            alt="Portrait photography showcasing dramatic lighting and composition"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <img
+            ref={plane2}
+            className="hidden md:block absolute bg-zinc-500 h-[100px] w-[175px] top-[16%] left-[50%] object-cover will-change-transform plane2"
+            src="./empire.webp"
+            alt="Creative photography example demonstrating artistic vision"
+            loading="lazy"
+            fetchPriority="low"
+          />
+          <img
+            ref={plane3}
+            className="hidden md:block absolute bg-zinc-500 h-[200px] w-[165px] top-[15%] left-[72%] object-cover will-change-transform plane3"
+            src="./waves.webp"
+            alt="Professional headshot photography sample"
+            loading="lazy"
+            fetchPriority="low"
+          />
+          <img
+            ref={plane4}
+            className="hidden md:block absolute bg-zinc-500 h-[140px] w-[225px] top-[60%] left-[61%] object-cover will-change-transform plane4"
+            src="./girl.webp"
+            alt="Event photography capturing candid moments"
+            loading="lazy"
+            fetchPriority="low"
+          />
+          <img
+            ref={plane5}
+            className="hidden md:block absolute bg-zinc-500 h-[175px] w-[140px] top-[63%] left-[42%] object-cover will-change-transform plane5"
+            src="./building.webp"
+            alt="Nature photography showcasing outdoor scenes"
+            loading="lazy"
+            fetchPriority="low"
+          />
+          <img
+            ref={plane6}
+            className="hidden md:block absolute bg-zinc-500 h-[100px] w-[100px] top-[61%] left-[28%] object-cover will-change-transform plane6"
+            src="./3-building.webp"
+            alt="Commercial photography for business needs"
+            loading="lazy"
+            fetchPriority="low"
+          />
+          <img
+            ref={plane7}
+            className="hidden md:block absolute bg-zinc-500 h-[125px] w-[200px] top-[43%] left-[5%] object-cover will-change-transform plane7"
+            src="./boat-girl.webp"
+            alt="Wedding photography capturing special moments"
+            loading="lazy"
+            fetchPriority="low"
+          />
 
-        {/* Mobile-only single image */}
+          {/* Mobile-only single image */}
         <div className="md:hidden w-full max-w-sm h-[300px] rounded-lg overflow-hidden mt-4">
           <img
-            src="https://images.pexels.com/photos/28469559/pexels-photo-28469559.jpeg"
+            src="./gardner.webp"
             className="w-full h-full object-cover"
             alt="Featured photography"
+            loading="lazy"
+            fetchPriority="low"
           />
         </div>
       </div>
@@ -175,8 +198,10 @@ const Home = () => {
           <div className="w-full sm:w-[92%] md:w-[80%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[40vh] sm:h-[48vh] md:h-[56vh] lg:h-[66vh] bg-zinc-500 rounded-[14px] md:rounded-[36px] overflow-hidden">
             <img
               className="w-full h-full object-cover object-center"
-              src="https://images.pexels.com/photos/7523256/pexels-photo-7523256.jpeg"
+              src="./hero.webp"
               alt="Featured large photography"
+              loading="lazy"
+              fetchPriority="low"
             />
           </div>
         </div>
@@ -205,8 +230,10 @@ const Home = () => {
               >
                 <img
                   src={card.image}
-                  alt=""
+                  alt={`Photography portfolio: ${card.title} - ${card.paragraphs[0].substring(0, 100)}...`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  fetchPriority="low"
                 />
                 <h4
                   className={`text-zinc-100 absolute bottom-3 ${
@@ -247,13 +274,15 @@ const Home = () => {
             ref={tiltRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="Tilt w-full max-w-[900px] sm:w-[80%] md:w-[70%] lg:w-[60%] h-[50vh] sm:h-[55vh] md:h-[65vh] lg:h-[85vh] rounded-[20px] sm:rounded-[30px] overflow-hidden bg-zinc-400 mt-8 transition-transform duration-200 ease-out shadow-[0px_4px_16px_rgba(17,17,26,0.08),_0px_8px_24px_rgba(17,17,26,0.06)]"
+            className="Tilt w-full max-w-[900px] sm:w-[80%] md:w-[70%] lg:w-[60%] h-[50vh] sm:h-[55vh] md:h-[65vh] lg:h-[85vh] rounded-[20px] sm:rounded-[30px] overflow-hidden bg-zinc-400 mt-8 transition-transform duration-200 ease-out shadow-[0px_4px_16px_rgba(17,17,26,0.08),_0px_8px_24px_rgba(17,17,26,0.06)]  "
             style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
           >
             <img
               className="w-full h-full object-cover object-top"
-              src="https://images.pexels.com/photos/1306247/pexels-photo-1306247.jpeg"
-              alt=""
+              src="./about.webp"
+              alt="Portrait of Orion Hale, professional photographer, in thoughtful pose representing the story behind the camera"
+              loading="lazy"
+              fetchPriority="high"
             />
           </div>
 
