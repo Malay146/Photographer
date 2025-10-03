@@ -51,13 +51,15 @@ const Loader = () => {
 
 return (
     <div ref={overlayRef} className="loader-overlay fixed inset-0 bg-black flex items-center justify-center z-[9999] px-4">
-        <h1
+        <div
             className="text-white font-play font-bold leading-tight text-4xl text-center
                                  sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[7rem]"
             aria-live="polite"
+            role="status"
+            aria-label={`Loading progress: ${progress} percent`}
         >
             {progress}%
-        </h1>
+        </div>
     </div>
 );
 };

@@ -88,38 +88,38 @@ const Navbar = () => {
             stagger={0.05}
             onClick={() => handleNavigate("/")}
           >
-            <h1 className="cursor-pointer">HOME</h1>
+            <span className="cursor-pointer">HOME</span>
           </SplitText>
           <SplitText
             splitType="chars"
             stagger={0.05}
             onClick={() => handleNavigate("/gallery")}
           >
-            <h1 className="cursor-pointer">GALLERY</h1>
+            <span className="cursor-pointer">GALLERY</span>
           </SplitText>
           <SplitText
             splitType="chars"
             stagger={0.05}
             onClick={() => handleNavigate("/contact")}
           >
-            <h1 className="cursor-pointer">LET&apos;S CONNECT</h1>
+            <span className="cursor-pointer">LET&apos;S CONNECT</span>
           </SplitText>
         </div>
         <div className="text-white uppercase font-lato w-full flex justify-evenly flex-wrap gap-4 text-balance items-center">
           <SplitText splitType="words">
-            <h1>Instagram</h1>
+            <span>Instagram</span>
           </SplitText>
           <SplitText splitType="words">
-            <h1>youtube</h1>
+            <span>youtube</span>
           </SplitText>
           <SplitText splitType="words">
-            <h1>facebook</h1>
+            <span>facebook</span>
           </SplitText>
           <SplitText splitType="words">
-            <h1>shutterstock</h1>
+            <span>shutterstock</span>
           </SplitText>
           <SplitText splitType="words">
-            <h1>reddit</h1>
+            <span>reddit</span>
           </SplitText>
         </div>
       </div>

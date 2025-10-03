@@ -212,9 +212,9 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="max-w-4xl mx-auto contact-form">
             <div className="bg-zinc-950 rounded-3xl p-8 md:p-12">
-              <h3 className="font-noto text-3xl md:text-5xl font-bold text-white text-center mb-8">
+              <h2 className="font-noto text-3xl md:text-5xl font-bold text-white text-center mb-8">
                 Start Your Project
-              </h3>
+              </h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -302,9 +302,9 @@ const Contact = () => {
       {/* Social Media Section */}
       <div className="w-full py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h3 className="font-noto text-3xl md:text-5xl font-bold text-black mb-8">
+          <h2 className="font-noto text-3xl md:text-5xl font-bold text-black mb-8">
             Follow the Journey
-          </h3>
+          </h2>
           <p className="font-lato text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
             Stay connected and see behind-the-scenes moments, recent work, and photography tips.
           </p>

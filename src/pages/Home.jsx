@@ -235,13 +235,13 @@ const Home = () => {
                   loading="lazy"
                   fetchPriority="low"
                 />
-                <h4
+                <span
                   className={`text-zinc-100 absolute bottom-3 ${
                     card.datePosition === "right" ? "right-4" : "left-4"
                   } font-play`}
                 >
                   {card.date}
-                </h4>
+                </span>
               </div>
               <div className="content w-full md:w-1/2 flex flex-col justify-center px-2 md:px-0">
                 <h2 className="font-lato text-3xl md:text-5xl font-bold">
@@ -287,12 +287,12 @@ const Home = () => {
           </div>
 
           <div className="font-lato mt-6 sm:mt-8 leading-tight tracking-tighter">
-            <h4 className="font-bold text-xl sm:text-2xl md:text-3xl">
+            <h2 className="font-bold text-xl sm:text-2xl md:text-3xl">
               Orion Hale, 29{" "}
-            </h4>
-            <h4 className="font-bold text-xl sm:text-2xl md:text-3xl">
+            </h2>
+            <h3 className="font-bold text-xl sm:text-2xl md:text-3xl">
               “Where silence, light, and emotion converge.”
-            </h4>
+            </h3>
           </div>
 
           <p className="font-lato text-center text-sm sm:text-base md:text-lg mt-4 mb-6 max-w-4xl leading-relaxed tracking-tight">
